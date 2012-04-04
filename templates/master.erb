@@ -1,4 +1,5 @@
 [master]
+  certname      = puppetmaster
   environment   = <%= scope.lookupvar("puppet::params::default_environment") %>
   <% if scope.lookupvar("puppet::params::dynamic_environments") -%>
   manifest      = $confdir/environments/$environment/manifests/site.pp
