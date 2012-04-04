@@ -1,7 +1,7 @@
 [main]
-  server        = <%= puppetserver %>
-  confdir       = <%= confdir %>
-  vardir        = <%= vardir %>
-  ssldir        = <%= ssldir %>
-  logdir        = <%= logdir %>
-  environment   = <%= default_environment %>
+  server        = <%= scope.lookupvar("puppet::params::puppetserver") %>
+  confdir       = <%= scope.lookupvar("puppet::params::confdir") %>
+  vardir        = <%= scope.lookupvar("puppet::params::vardir") %>
+  ssldir        = <%= scope.lookupvar("puppet::params::ssldir") %>
+  logdir        = <%= scope.lookupvar("puppet::params::logdir") %>
+  environment   = <%= scope.lookupvar("puppet::params::default_environment") %>
