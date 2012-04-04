@@ -5,10 +5,8 @@ class puppet::master inherits puppet {
       content => template('puppet/main.erb', 'puppet/master.erb', 'puppet/agent.erb')
   }
 
-  file { [
-    "/etc/puppet/auth.conf",
-    "/etc/puppet/fileserver.conf",
-  ]:
+  file {
+    "/etc/puppet/fileserver.conf":
       source => "puppet:///modules/puppet/$name"
   }
 
