@@ -2,7 +2,7 @@ class puppet::params {
   
   # Site-wide parameters
 
-  $puppetserver = "10.7.0.1"
+  $puppetserver = "sand.rc.pdx.edu"
 
   $confdir = "/etc/puppet"
   $vardir  = "/var/lib/puppet"
