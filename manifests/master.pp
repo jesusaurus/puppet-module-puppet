@@ -10,4 +10,21 @@ class puppet::master inherits puppet {
       source => "puppet:///modules/puppet/$name"
   }
 
+  service {
+    "puppet":
+      ensure    => 'running',
+      enable    => true,
+      subscribe => File[ "/etc/puppet/puppet.conf" ],
+      subscribe +> File[ "/etc/puppet/auth.conf" ],
+  }
+
+  service {
+    "puppetmaster":
+      ensure    => 'running',
+      enable    => true,
+      subscribe => File[ "/etc/puppet/puppet.conf" ],
+      subscribe +> File[ "/etc/puppet/fileserver.conf" ],
+      subscribe +> File[ "/etc/puppet/auth.conf" ],
+  }
+
 }
