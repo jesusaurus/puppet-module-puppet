@@ -31,4 +31,21 @@ class puppet::master inherits puppet {
       ],
   }
 
+  if $puppet::params::storeconfigs {
+    case $dbadapter {
+      'sqlite3': {
+        include puppet::sqlite
+      }
+      'postgresql': {
+        include puppet::psql
+      }
+      'mysql': {
+        include puppet::mysql
+      }
+      default: {
+        err("Bad storeconfig backend specified: $dbadapter")
+      }
+    }
+  }
+
 }

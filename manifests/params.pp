@@ -15,5 +15,6 @@ class puppet::params {
   $dynamic_environments = true
 
   $storeconfigs = false
+  $thinconfigs  = false
 
 }
