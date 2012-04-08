@@ -1,25 +1,25 @@
 [master]
   certname      = puppetmaster
   environment   = <%= scope.lookupvar("puppet::params::default_environment") %>
-  <% if scope.lookupvar("puppet::params::dynamic_environments") -%>
+<% if scope.lookupvar("puppet::params::dynamic_environments") -%>
   manifest      = $confdir/environments/$environment/manifests/site.pp
   modulepath    = $confdir/environments/$environment/modules
-  <% end -%>
+<% end -%>
 
-  <% if scope.lookupvar("puppet::params::storeconfigs") -%>
+<% if scope.lookupvar("puppet::params::storeconfigs") -%>
   storeconfigs      = true
   thin_storeconfigs = <%= scope.lookupvar("puppet::params::thinconfigs") %>
-    
+
   dbadapter     = <%= scope.lookupvar("puppet::params::dbadapter") %>
-    <% if scope.lookupvar("puppet::params::dbadapter") == 'mysql' -%>
+<% if scope.lookupvar("puppet::params::dbadapter") == 'mysql' -%>
   dbuser        = <%= scope.lookupvar("puppet::params::dbuser") %>
   dbpassword    = <%= scope.lookupvar("puppet::params::dbpassword") %>
   dbserver      = <%= scope.lookupvar("puppet::params::dbserver") %>
   dbsocket      = <%= scope.lookupvar("puppet::params::dbsocket") %>
-    <% elsif scope.lookupvar("puppet::params::dbadapter") == 'postgresql' -%>
+<% elsif scope.lookupvar("puppet::params::dbadapter") == 'postgresql' -%>
   dbuser        = <%= scope.lookupvar("puppet::params::dbuser") %>
   dbpassword    = <%= scope.lookupvar("puppet::params::dbpassword") %>
   dbserver      = <%= scope.lookupvar("puppet::params::dbserver") %>
   dbname        = <%= scope.lookupvar("puppet::params::dbname") %>
-    <% end -%>
-  <% end -%>
+<% end -%>
+<% end -%>
