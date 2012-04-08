@@ -1,5 +1,5 @@
 [main]
-  server        = <%= scope.lookupvar("puppet::params::puppetserver") %>
+  server        = <%= scope.lookupvar("puppet::params::puppetmaster") %>
   confdir       = <%= scope.lookupvar("puppet::params::confdir") %>
   vardir        = <%= scope.lookupvar("puppet::params::vardir") %>
   ssldir        = <%= scope.lookupvar("puppet::params::ssldir") %>
