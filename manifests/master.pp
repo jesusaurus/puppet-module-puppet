@@ -1,8 +1,13 @@
 class puppet::master inherits puppet {
-  
+
   file {
     "/etc/puppet/puppet.conf":
-      content => template('puppet/main.erb', 'puppet/master.erb', 'puppet/agent.erb')
+      content => template('puppet/main.erb', 'puppet/master.erb', 'puppet/agent.erb'),
+      require => $puppet::params::storeconfigs ? {
+        true    => $puppet::params::dbadapter ? {
+          'postgresql' => Postgres::Database[ "$puppet::params::dbname" ],
+        }
+      }
   }
 
   file {
