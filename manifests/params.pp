@@ -14,7 +14,13 @@ class puppet::params {
   $default_environment = "production"
   $dynamic_environments = true
 
-  $storeconfigs = false
-  $thinconfigs  = false
+  $storeconfigs = true
+  $thinconfigs  = true
+
+  $dbadapter  = "postgresql"
+  $dbserver   = "localhost"
+  $dbname     = "puppet"
+  $dbuser     = "puppet"
+  $dbpassword = "password"
 
 }
