@@ -8,7 +8,7 @@ class puppet::psql {
   package {
     "pg":
       ensure => 'installed',
-      provider => 'gems',
+      provider => 'gem',
   }
 
   postgres::user {
