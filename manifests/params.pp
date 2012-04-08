@@ -1,5 +1,5 @@
 class puppet::params {
-  
+
   # Site-wide parameters
 
   $puppetmaster = "puppet"

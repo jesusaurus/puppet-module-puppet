@@ -5,6 +5,6 @@ class puppet {
 
   file {
     "/etc/puppet/auth.conf":
-      source => "puppet:///modules/puppet/auth.conf"
+      source => "puppet:///modules/puppet/auth.conf",
   }
 }

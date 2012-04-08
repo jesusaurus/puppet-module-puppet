@@ -9,8 +9,10 @@ class puppet::agent inherits puppet {
     "puppet":
       ensure    => 'running',
       enable    => true,
-      subscribe => File[ "/etc/puppet/puppet.conf" ],
-      subscribe +> File[ "/etc/puppet/auth.conf" ],
+      subscribe => [
+        File[ "/etc/puppet/puppet.conf" ],
+        File[ "/etc/puppet/auth.conf" ],
+      ],
   }
 
 }

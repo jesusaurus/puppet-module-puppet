@@ -12,14 +12,14 @@ class puppet::psql {
   }
 
   postgres::user {
-    "puppet":
-      password => 'password',
+    "$puppet::params::dbuser":
+      password => "$puppet::params::dbpassword",
   }
 
   postgres::database {
-    "puppet":
-      owner   => 'puppet',
-      require => Postgres::User["puppet"],
+    "$puppet::params::dbname":
+      owner   => "$puppet::params::dbuser",
+      require => Postgres::User["$puppet::params::dbuser"],
   }
 
 }

@@ -7,7 +7,7 @@ class puppet::master inherits puppet {
 
   file {
     "/etc/puppet/fileserver.conf":
-      source => "puppet:///modules/puppet/fileserver.conf"
+      source => "puppet:///modules/puppet/fileserver.conf",
   }
 
   service {
