@@ -6,9 +6,10 @@ class puppet::sqlite {
   package {
     "sqlite3":
       ensure => 'installed',
-      ;
+  }
+
+  package {
     "libsqlite3-ruby":
       ensure => 'installed',
-      ;
   }
 }
