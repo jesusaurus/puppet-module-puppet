@@ -21,7 +21,6 @@ class puppet::master inherits puppet {
       enable    => true,
       subscribe => [
         File["/etc/puppet/puppet.conf"],
-        File["/etc/puppet/auth.conf"],
       ],
   }
 
@@ -32,7 +31,6 @@ class puppet::master inherits puppet {
       subscribe => [
         File["/etc/puppet/puppet.conf"],
         File["/etc/puppet/fileserver.conf"],
-        File["/etc/puppet/auth.conf"],
       ],
   }
 
