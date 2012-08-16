@@ -9,13 +9,16 @@ class puppet::params {
   $logdir  = "/var/log/puppet"
   $ssldir  = "$vardir/ssl"
 
-  $quiet = false
+  $quiet  = false
+  $report = true
+
+  $pluginsync = true
 
   $default_environment = "production"
   $dynamic_environments = true
 
   $storeconfigs = true
-  $thinconfigs  = true
+  $thinconfigs  = false
 
   $dbadapter  = "postgresql"
   $dbserver   = "localhost"

@@ -1,6 +1,7 @@
 [agent]
   certname      = <%= scope.lookupvar("fqdn") %>
-  report        = <%= not scope.lookupvar("puppet::params::quiet") %>
+  report        = <%= scope.lookupvar("puppet::params::report") %>
   show_diff     = <%= not scope.lookupvar("puppet::params::quiet") %>
   environment   = <%= scope.lookupvar("puppet::params::default_environment") %>
+  pluginsync    = <%= scope.lookupvar("puppet::params::pluginsync") %>
 

@@ -1,3 +1,4 @@
 * Move sqlite/mysql/postgresql into their own modules.
 * Use the singleton module for package management.
 * Use a gentoo module that utilizes use flags.
+* Add support for puppetdb
