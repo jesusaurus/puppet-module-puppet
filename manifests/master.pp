@@ -36,6 +36,9 @@ class puppet::master inherits puppet {
 
   if $puppet::params::storeconfigs {
     case $puppet::params::dbadapter {
+      'puppetdb': {
+        include puppet::puppetdb
+      }
       'sqlite3': {
         include puppet::sqlite
       }

@@ -20,7 +20,7 @@ class puppet::params {
   $storeconfigs = true
   $thinconfigs  = false
 
-  $dbadapter  = "postgresql"
+  $dbadapter  = "puppetdb"
   $dbserver   = "localhost"
   $dbname     = "puppet"
   $dbuser     = "puppet"

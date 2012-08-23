@@ -7,19 +7,20 @@
 <% end -%>
 
 <% if scope.lookupvar("puppet::params::storeconfigs") -%>
-  storeconfigs      = true
-  thin_storeconfigs = <%= scope.lookupvar("puppet::params::thinconfigs") %>
+  storeconfigs         = true
+<% if scope.lookupvar("puppet::params::dbadapter") == 'puppetdb' -%>
+  storeconfigs_backend = puppetdb
+<% else -%>
+  thin_storeconfigs    = <%= scope.lookupvar("puppet::params::thinconfigs") %>
 
   dbadapter     = <%= scope.lookupvar("puppet::params::dbadapter") %>
-<% if scope.lookupvar("puppet::params::dbadapter") == 'mysql' -%>
   dbuser        = <%= scope.lookupvar("puppet::params::dbuser") %>
   dbpassword    = <%= scope.lookupvar("puppet::params::dbpassword") %>
   dbserver      = <%= scope.lookupvar("puppet::params::dbserver") %>
+<% if scope.lookupvar("puppet::params::dbadapter") == 'mysql' -%>
   dbsocket      = <%= scope.lookupvar("puppet::params::dbsocket") %>
 <% elsif scope.lookupvar("puppet::params::dbadapter") == 'postgresql' -%>
-  dbuser        = <%= scope.lookupvar("puppet::params::dbuser") %>
-  dbpassword    = <%= scope.lookupvar("puppet::params::dbpassword") %>
-  dbserver      = <%= scope.lookupvar("puppet::params::dbserver") %>
   dbname        = <%= scope.lookupvar("puppet::params::dbname") %>
+<% end -%>
 <% end -%>
 <% end -%>
