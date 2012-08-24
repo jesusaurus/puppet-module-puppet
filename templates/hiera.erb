@@ -1,0 +1,22 @@
+---
+:backends:
+  - yaml
+  - file
+  - puppet
+
+:hierarchy:
+  - fqdn/%{fqdn}
+  - osfamily/%{osfamily}/%{lsbdistcodename}
+  - osfamily/%{osfamily}/%{architecture}
+  - osfamily/%{osfamily}/common
+  - modules/%{calling_module}
+  - common
+
+:yaml:
+  :datadir: /etc/puppet/environments/%{environment}/data
+
+:file:
+  :datadir: /etc/puppet/environments/%{environment}/data
+
+:puppet:
+  :datasource: data
