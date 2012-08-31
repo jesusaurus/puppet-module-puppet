@@ -1,6 +1,6 @@
 class puppet::puppetdb (
-  $server => "localhost",
-  $port   => '8081',
+  $server = "$puppet::params::dbserver",
+  $port   = '8081',
 ) {
 
   package { 'puppetdb-terminus':
